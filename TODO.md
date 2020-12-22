@@ -1,0 +1,4 @@
+- evaluate correlations among input variables
+- prepare cross validation
+- train a model
+- evaluate its performance
