@@ -1,5 +1,3 @@
 input_data_file: "../data/insurance.csv"
 
 plotting_dir: "../plotting"
-
-test: 1
