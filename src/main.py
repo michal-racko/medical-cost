@@ -1,21 +1,37 @@
 import pandas as pd
 
 from data_plotting import SeparationPower
+from tools.command_line import parse_args, OperationMode
+from tools.config import Config
 
-INPUT_DATA_FILE = '../data/insurance.csv'
-PLOTTING_DIR = '../plotting'
 
+def main_plotting(_data: pd.DataFrame,
+                  _config: Config):
+    """
+    Makes all the plots needed for the analysis
 
-def main_plotting(_data: pd.DataFrame):
-    plotter = SeparationPower(
-        data=_data,
-        plotting_dir=PLOTTING_DIR
-    )
+    :param _data:           examined data
+    :param _config:         configurations from the config file
+    """
+    plotters = [
+        SeparationPower(
+            data=_data,
+            plotting_dir=_config.plotting_dir
+        )
+    ]
 
-    plotter.plot()
+    for plotter in plotters:
+        plotter.plot()
 
 
 if __name__ == '__main__':
-    data = pd.read_csv(INPUT_DATA_FILE)
+    args = parse_args()
 
-    main_plotting(data)
+    config = Config.read(
+        args.config
+    )
+
+    data = pd.read_csv(config.input_data_file)
+
+    if args.mode == OperationMode.PLOTTING:
+        main_plotting(data, config)

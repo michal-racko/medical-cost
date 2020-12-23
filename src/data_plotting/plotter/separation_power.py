@@ -72,7 +72,14 @@ class SeparationPower(Plotter):
             ]
         )
         ax.legend()
-        ax.set_xlabel(variable_name)
+        ax.set_title(
+            'Separation power',
+            fontsize=20
+        )
+        ax.set_xlabel(
+            variable_name,
+            fontsize=16
+        )
         pl.savefig(
             f'{self._plotting_dir}/separation_power/{variable_name}.png'
         )
