@@ -1,9 +1,11 @@
-import pathlib
+import logging
 
 import pandas as pd
 import matplotlib.pyplot as pl
 
 from .plotter import Plotter
+
+logger = logging.getLogger(__name__)
 
 
 class SeparationPower(Plotter):
@@ -20,10 +22,9 @@ class SeparationPower(Plotter):
         """
         super(SeparationPower, self).__init__(
             data=data,
-            plotting_dir=plotting_dir
+            plotting_dir=plotting_dir,
+            subdir_name='separation_power'
         )
-
-        self._assure_subdir()
 
     def plot(self):
         """
@@ -55,6 +56,9 @@ class SeparationPower(Plotter):
         :param pos_data:        data corresponding to bellow median costs
         :param neg_data:        data corresponding to above median costs
         """
+        logger.info(
+            f'Plotting separation power for: {variable_name}'
+        )
         fig, ax = pl.subplots()
 
         ax.hist(
@@ -81,18 +85,11 @@ class SeparationPower(Plotter):
             fontsize=16
         )
         pl.savefig(
-            f'{self._plotting_dir}/separation_power/{variable_name}.png'
+            f'{self._plotting_dir}/{self.subdir_name}/{variable_name}.png'
         )
         pl.close(fig)
 
-    def _assure_subdir(self):
-        """
-        Creates the separation_power subdir in the main plotting dir
-        if it doesn't already exist
-        """
-        pathlib.Path(
-            f'{self._plotting_dir}/separation_power'
-        ).mkdir(
-            parents=True,
-            exist_ok=True
+        logger.info(
+            f'Image saved as: {self._plotting_dir}/{self.subdir_name}/'
+            f'{variable_name}.png'
         )

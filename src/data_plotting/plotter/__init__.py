@@ -1,1 +1,2 @@
 from .separation_power import SeparationPower
+from .variable_histogram import VariableHistogram
