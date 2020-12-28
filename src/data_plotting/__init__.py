@@ -1,2 +1,5 @@
-from .plotter import SeparationPower
-from .plotter import VariableHistogram
+from .plotter import (
+    SeparationPower,
+    VariableHistogram,
+    Scatter
+)
