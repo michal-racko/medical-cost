@@ -5,7 +5,8 @@ import pandas as pd
 from data_plotting import (
     SeparationPower,
     VariableHistogram,
-    Scatter
+    Scatter,
+    Reweighting
 )
 from tools.command_line import parse_args, OperationMode
 from tools.config import Config
@@ -28,7 +29,8 @@ def main_plotting(_data: pd.DataFrame,
     plotters = [
         SeparationPower,
         VariableHistogram,
-        Scatter
+        Scatter,
+        Reweighting
     ]
 
     for cls in plotters:

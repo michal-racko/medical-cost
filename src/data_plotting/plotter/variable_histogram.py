@@ -48,8 +48,9 @@ class VariableHistogram(Plotter):
 
         ax.hist(
             self._data[variable_name],
-            color='tab:green'
+            color='tab:blue'
         )
+        ax.grid()
         ax.set_title(
             'Histogram',
             fontsize=20

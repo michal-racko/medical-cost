@@ -1,5 +1,6 @@
 from .plotter import (
     SeparationPower,
     VariableHistogram,
-    Scatter
+    Scatter,
+    Reweighting
 )
