@@ -1,20 +1,21 @@
 import numpy as np
 import pandas as pd
 
-from .weight import Weight
+from .weight_base import WeightBase
 
 
-class WeiSmoker(Weight):
+class WeiSmoker(WeightBase):
     """
     Calculates weights which will make
     the smoker distribution uniform
     """
 
+    name = 'wei_smoker'
+
     def __init__(self,
                  data: pd.DataFrame):
         super(WeiSmoker, self).__init__(
             data,
-            name='wei_smoker'
         )
 
     def calculate(self) -> np.ndarray:

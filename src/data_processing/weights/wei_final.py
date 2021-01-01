@@ -1,21 +1,21 @@
 import numpy as np
 import pandas as pd
 
-from .weight import Weight
+from .weight_base import WeightBase
 from .wei_age import WeiAge
 from .wei_smoker import WeiSmoker
 
 
-class WeiFinal(Weight):
+class WeiFinal(WeightBase):
     """
     Combines all weights into one
     """
+    name = 'wei_final'
 
     def __init__(self,
                  data: pd.DataFrame):
         super(WeiFinal, self).__init__(
-            data,
-            name='wei_final'
+            data
         )
 
     def calculate(self) -> np.ndarray:

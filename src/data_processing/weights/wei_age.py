@@ -1,20 +1,20 @@
 import numpy as np
 import pandas as pd
 
-from .weight import Weight
+from .weight_base import WeightBase
 
 
-class WeiAge(Weight):
+class WeiAge(WeightBase):
     """
     Calculates weights which will make
     the age distribution uniform
     """
+    name = 'wei_age'
 
     def __init__(self,
                  data: pd.DataFrame):
         super(WeiAge, self).__init__(
             data,
-            name='wei_age'
         )
 
     def calculate(self) -> np.ndarray:
