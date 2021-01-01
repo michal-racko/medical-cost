@@ -3,7 +3,8 @@ import argparse
 
 
 class OperationMode(enum.IntEnum):
-    PLOTTING = 1
+    ANALYSIS = 1
+    CROSS_VALIDATION = 2
 
     def __str__(self):
         return self.name.lower()

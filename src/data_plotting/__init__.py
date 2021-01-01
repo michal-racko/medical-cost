@@ -2,5 +2,6 @@ from .plotter import (
     SeparationPower,
     VariableHistogram,
     Scatter,
-    Reweighting
+    Reweighting,
+    CrossValidation
 )
